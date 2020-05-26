@@ -1,4 +1,4 @@
-# PyCLIDictionary
+# PyCLIDictionary // The (Un)Reliable Dictionary
 
 This is a personal project that is still in progress!
 

@@ -35,23 +35,16 @@ def findWord():
     fns = [findWordInData, findWordInUrban]
     word = txt.get()
 
-    # window2 = Tk()
-    # window2.title(word)
-    # window2.geometry('500x250')
-
-    # lbl2 = Label(window2, text="Definition appears here!", wraplength = 500)
-    # lbl2.grid(column=0, row=0, columnspan = 100)
-
-    if word in data:
-        lbl.configure(text = random.choice(fns)(word))
-    elif len(get_close_matches(word, data.keys(), cutoff= 0.75)) > 0:
-        c = "Y" # input("Did you mean %s instead? Enter 'Y' or 'N': " % get_close_matches(word, data.keys(), cutoff= 0.75)[0]).upper()
-        if c == "Y":
-            lbl.configure(text = random.choice(fns)(get_close_matches(word, data.keys(), cutoff= 0.75)[0]))
-        else:
-            lbl.configure(text = "Oops! Try Again.")
-    else:  
-        lbl.configure(text = "Word not found, please try another word. ")
+if word in data:
+    lbl.configure(text = random.choice(fns)(word))
+elif len(get_close_matches(word, data.keys(), cutoff= 0.75)) > 0:
+    c = "Y" # input("Did you mean %s instead? Enter 'Y' or 'N': " % get_close_matches(word, data.keys(), cutoff= 0.75)[0]).upper()
+    if c == "Y":
+        lbl.configure(text = random.choice(fns)(get_close_matches(word, data.keys(), cutoff= 0.75)[0]))
+    else:
+        lbl.configure(text = "Oops! Try Again.")
+else:  
+    lbl.configure(text = "Word not found, please try another word. ")
 
 window = Tk()
 window.title("Reliable Dictionary")
